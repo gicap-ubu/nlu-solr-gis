@@ -1,5 +1,5 @@
 ================================================================================
-  EVALUATION_RREDONDO BENCHMARK SUMMARY REPORT
+  SOFTWAREX UNIFIED BENCHMARK SUMMARY REPORT
 ================================================================================
   Model Provider:        MISTRAL (Mistral 7B Instruct v0.2)
   Architecture/Params:   7.24B (FP16)
@@ -42,7 +42,7 @@
   CONSOLIDATED MEAN LATENCY: 3969.1 ms
 ================================================================================
   Artifacts Saved:
-   - JSON Results: /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/results_rredondo_mistral.json
-   - LaTeX Table:  /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/table_rredondo_mistral.tex
-   - Text Summary: /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/summary_rredondo_mistral.txt
+   - JSON Results: code/evaluation/results/results_mistral.json
+   - LaTeX Table:  code/evaluation/results/table_mistral.tex
+   - Text Summary: code/evaluation/results/summary_mistral.txt
 ================================================================================

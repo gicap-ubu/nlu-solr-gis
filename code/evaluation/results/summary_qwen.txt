@@ -1,5 +1,5 @@
 ================================================================================
-  EVALUATION_RREDONDO BENCHMARK SUMMARY REPORT
+  SOFTWAREX UNIFIED BENCHMARK SUMMARY REPORT
 ================================================================================
   Model Provider:        QWEN (Qwen 2.5 7B Instruct)
   Architecture/Params:   7.61B (FP16)
@@ -42,7 +42,7 @@
   CONSOLIDATED MEAN LATENCY: 2680.7 ms
 ================================================================================
   Artifacts Saved:
-   - JSON Results: /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/results_rredondo_qwen.json
-   - LaTeX Table:  /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/table_rredondo_qwen.tex
-   - Text Summary: /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/summary_rredondo_qwen.txt
+   - JSON Results: code/evaluation/results/results_qwen.json
+   - LaTeX Table:  code/evaluation/results/table_qwen.tex
+   - Text Summary: code/evaluation/results/summary_qwen.txt
 ================================================================================

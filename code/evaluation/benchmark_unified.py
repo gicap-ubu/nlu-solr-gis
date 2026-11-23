@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-benchmark_rredondo.py
+benchmark_unified.py
 ================================================================================
 Comprehensive Evaluation Benchmark Suite for SoftwareX:
 "A Modular NLU-Solr Architecture with Dynamic GIS Visual Synchronization 
@@ -49,7 +49,7 @@ except ImportError as err:
     sys.stderr.write(f"[FATAL] Cannot import SoftwareX modules from {CODE_DIR}: {err}\n")
     sys.exit(1)
 
-DEFAULT_BATTERY_PATH = EVAL_DIR / "test_battery_unified.json" if (EVAL_DIR / "test_battery_unified.json").exists() else EVAL_DIR / "test_battery_rredondo.json"
+DEFAULT_BATTERY_PATH = EVAL_DIR / "test_battery_unified.json"
 DEFAULT_RESULTS_DIR = EVAL_DIR / "results"
 
 MODEL_METADATA = {
@@ -843,12 +843,12 @@ def generate_latex_table(results_dict: Dict[str, Any]) -> str:
     s2 = results_dict.get("suite_2_boolean_sum", {})
     s3 = results_dict.get("suite_3_conversational_memory", {})
 
-    template = r"""% Auto-generated LaTeX summary for SoftwareX evaluation_rredondo
+    template = r"""% Auto-generated LaTeX summary for SoftwareX Unified 372-Unit Benchmark
 \begin{table}[htbp]
 \centering
 \small
-\caption{Empirical Evaluation of @MODEL_NAME@ on evaluation\_rredondo Test Battery across Guardrails, Single-Turn Slot Filling, Boolean Summation, and Conversational DST.}
-\label{tab:evaluation_rredondo_@PROV@}
+\caption{Empirical Evaluation of @MODEL_NAME@ on the SoftwareX Unified 372-Unit Test Battery across Guardrails, Single-Turn Slot Filling, Boolean Summation, and Conversational DST.}
+\label{tab:unified_372_@PROV@}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\centering\arraybackslash}p{2.0cm}>{\centering\arraybackslash}p{2.0cm}>{\centering\arraybackslash}p{2.2cm}>{\centering\arraybackslash}p{2.2cm}}
 \toprule
 \textbf{Benchmark Suite} & \textbf{Test Units} & \textbf{Pass Rate (\%)} & \textbf{Key Metric} & \textbf{Mean Latency} \\
@@ -894,7 +894,7 @@ def generate_latex_table(results_dict: Dict[str, Any]) -> str:
 # MAIN BENCHMARK ORCHESTRATOR
 # =============================================================================
 def main():
-    parser = argparse.ArgumentParser(description="evaluation_rredondo: SoftwareX Conversational Spatial Search Benchmark Runner")
+    parser = argparse.ArgumentParser(description="SoftwareX Unified 372-Unit Conversational Spatial Search Benchmark Runner")
     parser.add_argument("--provider", "-p", default="mock", choices=list(MODEL_METADATA.keys()),
                         help="Execution model provider (default: mock CPU baseline)")
     parser.add_argument("--suite", "-s", default="all", choices=["all", "guardrails_ood", "single_turn_queries", "boolean_sum", "boolean_and_compound_logic", "conversational_memory"],
@@ -922,7 +922,7 @@ def main():
     meta = MODEL_METADATA[provider]
 
     print("=" * 80)
-    print(f"  SOFTWAREX EVALUATION SUITE: evaluation_rredondo")
+    print(f"  SOFTWAREX EVALUATION SUITE: Unified 372-Unit Benchmark")
     print(f"  Provider:         {provider.upper()} ({meta['name']})")
     print(f"  Parameters:       {meta['params']} | Precision: {meta['precision']}")
     print(f"  Sovereignty:      {meta['sovereignty']}")
@@ -950,7 +950,7 @@ def main():
         print(f"[Warning] Warm-up encountered: {e}")
 
     results_payload = {
-        "benchmark_suite": "evaluation_rredondo",
+        "benchmark_suite": "softwarex_unified_372",
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "host": platform.node(),
         "provider": provider,
@@ -1071,9 +1071,9 @@ def main():
         f"  CONSOLIDATED MEAN LATENCY: {mean_overall_lat:.1f} ms",
         "=" * 80,
         f"  Artifacts Saved:",
-        f"   - JSON Results: {json_path}",
-        f"   - LaTeX Table:  {tex_path}",
-        f"   - Text Summary: {summary_path}",
+        f"   - JSON Results: code/evaluation/results/{json_path.name}",
+        f"   - LaTeX Table:  code/evaluation/results/{tex_path.name}",
+        f"   - Text Summary: code/evaluation/results/{summary_path.name}",
         "=" * 80
     ]
     summary_text = "\n".join(summary_lines)

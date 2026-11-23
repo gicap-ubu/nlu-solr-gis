@@ -7,7 +7,7 @@
 
 Reference software implementation for the **SoftwareX** paper:  
 > **"A Modular NLU-Solr Architecture with Dynamic GIS Visual Synchronization for Conversational Spatial Search"**  
-> *Félix de Miguel, Daniel Urda, Nuño Basurto* — **Grupo de Inteligencia Computacional Aplicada (GICAP), Universidad de Burgos**.
+> *Félix de Miguel, Miguel Manzanedo, Raquel Redondo, Nuño Basurto, Francisco J. Iglesias, Daniel Urda* — **Grupo de Inteligencia Computacional Aplicada (GICAP)**, Universidad de Burgos & **ICTEA**, Universidad de Oviedo, Spain.
 
 ---
 
@@ -35,7 +35,7 @@ Navigating complex geospatial data spaces typically requires mastering rigid que
 Our architecture solves these limitations through a **4-stage decoupled pipeline**:
 1. **Stage 1 (NLU & Schema Enforcement)**: Enforces strict OpenAPI JSON Schemas under greedy decoding ($T=0.0$) alongside Few-Shot domain exemplars.
 2. **Stage 2 (Normalization & Query Building)**: Normalizes vocabulary via a pluggable domain thesaurus and deterministically constructs Boolean filter queries.
-3. **Stage 3 (Spatial Search & Vector RAG)**: Queries Apache Solr spatial cores and retrieves technical documentation snippets via dense vector indexing (FAISS).
+3. **Stage 3 (Spatial Search & Evidence Retrieval)**: Queries Apache Solr spatial cores (or the zero-setup standalone mock engine) and attaches grounded technical documentation evidence snippets (with optional dense vector FAISS integration in enterprise deployments).
 4. **Stage 4 (Dynamic GIS Map Synchronization)**: Updates interactive Leaflet.js maps in real time, rendering active filter badges, animating glowing pulse rings on matching facilities, and updating live site counters.
 
 ---

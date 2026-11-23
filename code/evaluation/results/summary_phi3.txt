@@ -1,5 +1,5 @@
 ================================================================================
-  EVALUATION_RREDONDO BENCHMARK SUMMARY REPORT
+  SOFTWAREX UNIFIED BENCHMARK SUMMARY REPORT
 ================================================================================
   Model Provider:        PHI3 (Phi-3 Mini 4K Instruct)
   Architecture/Params:   3.82B (FP16)
@@ -42,7 +42,7 @@
   CONSOLIDATED MEAN LATENCY: 3824.1 ms
 ================================================================================
   Artifacts Saved:
-   - JSON Results: /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/results_rredondo_phi3.json
-   - LaTeX Table:  /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/table_rredondo_phi3.tex
-   - Text Summary: /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/summary_rredondo_phi3.txt
+   - JSON Results: code/evaluation/results/results_phi3.json
+   - LaTeX Table:  code/evaluation/results/table_phi3.tex
+   - Text Summary: code/evaluation/results/summary_phi3.txt
 ================================================================================

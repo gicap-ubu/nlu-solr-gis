@@ -8,8 +8,8 @@
 
 > **Companion Template for the SoftwareX Article:**  
 > *"A Modular NLU-Solr Architecture with Dynamic GIS Visual Synchronization for Conversational Spatial Search"*  
-> *Félix de Miguel*, *Miguel Manzanedo*, *Raquel Redondo*, *Alicja Krzemień*, *Nuño Basurto*, *Daniel Urda*  
-> **Grupo de Inteligencia Computacional Aplicada (GICAP)**, Universidad de Burgos, Spain & **Central Mining Institute---National Research Institute**, Poland.
+> *Félix de Miguel*, *Miguel Manzanedo*, *Raquel Redondo*, *Nuño Basurto*, *Francisco J. Iglesias*, *Daniel Urda*  
+> **Grupo de Inteligencia Computacional Aplicada (GICAP)**, Universidad de Burgos, Spain & **Institute of Space Sciences and Technologies of Asturias (ICTEA)**, Universidad de Oviedo, Spain.
 
 ---
 
@@ -139,7 +139,7 @@ template/
 ├── run_template.sh         # Shell launcher script
 ├── requirements.txt        # Documentation of standard library dependencies
 ├── data/
-│   └── facilities.json     # 30-facility domain-agnostic GIS dataset
+│   └── facilities.json     # 80-facility domain-agnostic GIS dataset
 └── static/
     ├── index.html          # Reactive Leaflet GIS UI with Live Filter Studio
     └── favicon.ico         # App icon

@@ -1,15 +1,15 @@
 #!/bin/bash
 # ==============================================================================
-# Slurm SBATCH Job Script for evaluation_rredondo on HPC GPU Cluster
+# Slurm SBATCH Job Script for SoftwareX Unified 372-Unit Benchmark on HPC GPU
 # SoftwareX: "A Modular NLU-Solr Architecture with Dynamic GIS Visual Synchronization"
 # ==============================================================================
-#SBATCH --job-name=eval_rredondo_gpu
+#SBATCH --job-name=softwarex_eval_gpu
 #SBATCH --partition=computo
 #SBATCH --gres=gpu:1
 #SBATCH --mem=32G
 #SBATCH --time=02:00:00
-#SBATCH --output=evaluation_rredondo/logs/slurm_gpu_%j.log
-#SBATCH --error=evaluation_rredondo/logs/slurm_gpu_%j.err
+#SBATCH --output=code/evaluation/logs/slurm_gpu_%j.log
+#SBATCH --error=code/evaluation/logs/slurm_gpu_%j.err
 
 # Target model provider can be passed as environment variable or 1st argument (default: qwen)
 MODEL_PROVIDER="${1:-${MODEL:-qwen}}"
@@ -25,8 +25,8 @@ else
     EVAL_DIR="${WORKSPACE_DIR}"
 fi
 
-CENTRAL_CACHE_USER="/home/felix.demiguel"
-CONTAINER_SIF="/opt/ohpc/pub/containers/nvidia-pytorch-24.03-uv.sif"
+CENTRAL_CACHE_USER="${HF_CACHE_HOME:-$HOME}"
+CONTAINER_SIF="${CONTAINER_SIF:-/opt/ohpc/pub/containers/nvidia-pytorch-24.03-uv.sif}"
 
 cd "${WORKSPACE_DIR}" || exit 1
 mkdir -p "${EVAL_DIR}/logs" "${EVAL_DIR}/results"
@@ -56,9 +56,6 @@ export PYTHONUNBUFFERED=1
 export PYTHONPATH="${WORKSPACE_DIR}/code:${WORKSPACE_DIR}:${PYTHONPATH}"
 
 BENCHMARK_SCRIPT="${EVAL_DIR}/benchmark_unified.py"
-if [ ! -f "${BENCHMARK_SCRIPT}" ]; then
-    BENCHMARK_SCRIPT="${EVAL_DIR}/benchmark_rredondo.py"
-fi
 
 # Execute benchmark inside Apptainer / Singularity container with CUDA GPU passthrough
 if [ -f "${CONTAINER_SIF}" ]; then

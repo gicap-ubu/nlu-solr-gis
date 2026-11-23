@@ -85,7 +85,6 @@ code/evaluation/
 ├── benchmark_unified.py          # Unified benchmarking harness
 ├── run_local_mock.sh             # 1-second local CPU reproduction script
 ├── run_cluster_gpu.sbatch        # Slurm HPC GPU execution script
-├── run_deepseek.sbatch           # Dedicated Slurm script for DeepSeek-R1
 ├── results/                      # Raw evaluation outputs (JSON, TXT, LaTeX)
 │   ├── results_qwen.json
 │   ├── summary_qwen.txt

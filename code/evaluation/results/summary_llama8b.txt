@@ -1,5 +1,5 @@
 ================================================================================
-  EVALUATION_RREDONDO BENCHMARK SUMMARY REPORT
+  SOFTWAREX UNIFIED BENCHMARK SUMMARY REPORT
 ================================================================================
   Model Provider:        LLAMA8B (Llama 3.1 8B Instruct)
   Architecture/Params:   8.03B (FP16)
@@ -42,7 +42,7 @@
   CONSOLIDATED MEAN LATENCY: 3032.6 ms
 ================================================================================
   Artifacts Saved:
-   - JSON Results: /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/results_rredondo_llama8b.json
-   - LaTeX Table:  /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/table_rredondo_llama8b.tex
-   - Text Summary: /home/raquel.redondo/contenido_computo03/SoftwareX/evaluation_rredondo/results/summary_rredondo_llama8b.txt
+   - JSON Results: code/evaluation/results/results_llama8b.json
+   - LaTeX Table:  code/evaluation/results/table_llama8b.tex
+   - Text Summary: code/evaluation/results/summary_llama8b.txt
 ================================================================================

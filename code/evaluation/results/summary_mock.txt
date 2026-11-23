@@ -3,7 +3,7 @@
 ================================================================================
   Model Provider:        MOCK (Deterministic Baseline (Mock))
   Architecture/Params:   Rule-based (CPU Heuristics)
-  Execution Node:        Legion-7-Pro
+  Execution Node:        Local-CPU-Workstation
   VRAM Memory Footprint: 0.0 GB
   Timestamp:             2026-11-19 14:37:40
 --------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
   CONSOLIDATED MEAN LATENCY: 1.2 ms
 ================================================================================
   Artifacts Saved:
-   - JSON Results: C:\Users\felix\OneDrive - Universidad de Burgos\Documentos\CRMsDataSpace\SoftwareX\code\evaluation\results\results_mock.json
-   - LaTeX Table:  C:\Users\felix\OneDrive - Universidad de Burgos\Documentos\CRMsDataSpace\SoftwareX\code\evaluation\results\table_mock.tex
-   - Text Summary: C:\Users\felix\OneDrive - Universidad de Burgos\Documentos\CRMsDataSpace\SoftwareX\code\evaluation\results\summary_mock.txt
+   - JSON Results: code/evaluation/results/results_mock.json
+   - LaTeX Table:  code/evaluation/results/table_mock.tex
+   - Text Summary: code/evaluation/results/summary_mock.txt
 ================================================================================

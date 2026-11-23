@@ -9,8 +9,8 @@
 
 > **Reference software repository and replication package for the Elsevier *SoftwareX* journal article:**  
 > **"A Modular NLU-Solr Architecture with Dynamic GIS Visual Synchronization for Conversational Spatial Search"**  
-> *Félix de Miguel*, *Miguel Manzanedo*, *Raquel Redondo*, *Alicja Krzemień*, *Nuño Basurto*, *Daniel Urda*  
-> **Grupo de Inteligencia Computacional Aplicada (GICAP)**, Universidad de Burgos, Spain & **Central Mining Institute---National Research Institute**, Poland.
+> *Félix de Miguel*, *Miguel Manzanedo*, *Raquel Redondo*, *Nuño Basurto*, *Francisco J. Iglesias*, *Daniel Urda*  
+> **Grupo de Inteligencia Computacional Aplicada (GICAP)**, Universidad de Burgos, Spain & **Institute of Space Sciences and Technologies of Asturias (ICTEA)**, Universidad de Oviedo, Spain.
 
 ---
 
@@ -18,7 +18,7 @@
 
 This repository presents an open-source, modular, domain-agnostic software architecture that bridges conversational Natural Language Understanding (NLU), Apache Solr spatial indexing, and dynamic cartographic Geographic Information System (GIS) visualization.
 
-As a primary real-world demonstrator, the architecture is instantiated within the European research initiative **CRMsDataSpace** (*Building a Common European Data Space on Critical Raw Materials for the Green Deal*, EU Research Fund for Coal and Steel, Grant Agreement No. 101216677). The platform maps, filters, and analyzes 100 strategic extractive waste facilities (tailings dams and waste dumps) containing Critical Raw Materials (Lithium, Cobalt, Tungsten, Nickel, Rare Earth Elements, etc.) across 15 European countries.
+As a primary real-world demonstrator, the architecture is instantiated within the European research initiative **CRMsDataSpace** (*Building a Common European Data Space on Critical Raw Materials for the Green Deal*, EU Research Fund for Coal and Steel, Grant Agreement No. 101216677). The platform maps, filters, and analyzes 100 strategic extractive waste facilities (tailings dams and waste dumps) containing Critical Raw Materials (Lithium, Cobalt, Tungsten, Nickel, Rare Earth Elements, etc.) across 12 European countries.
 
 Additionally, to allow reviewers and developers to test the **generality and reusability** of the framework beyond European mining, this repository includes a **General-Purpose GIS Template Sandbox** ([`template/`](template/)), featuring a domain-agnostic renewable infrastructure dataset and an in-browser **Filter Studio** to create custom filters by hand.
 
@@ -51,44 +51,33 @@ Reviewers can launch the entire replication environment in the cloud with zero s
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/gicap-ubu/nlu-solr-gis)
 
-Both web applications are automatically orchestrated in parallel in the background:
-- 🇪🇺 **Port 8080**: **CRMsDataSpace WebApp** — Official European Critical Raw Materials demonstrator (100 facilities across 15 countries, multi-model NLU).
-- 🌍 **Port 8085**: **General GIS Template Sandbox** — Domain-agnostic sandbox with in-browser **Filter Studio** to create custom filters by hand and test framework generality.
+Both web applications are automatically orchestrated in parallel in the background via `.devcontainer/devcontainer.json` and `run_codespace.py`:
+- 🇪🇺 **Port 8080**: **CRMsDataSpace WebApp** — Official European Critical Raw Materials demonstrator (100 facilities across 12 EU countries, multi-model NLU).
+- 🌍 **Port 8085**: **General GIS Template Sandbox** — Domain-agnostic sandbox across 5 global Areas of Interest (AOIs) with in-browser **Filter Studio** to create custom filters by hand and test framework generality.
 
-> **Note on Automatic Port Forwarding**: Ports `8080` and `8085` forward automatically upon container startup and will open in separate browser tabs.
+> **Note on Automatic Port Forwarding**: Ports `8080` and `8085` forward automatically upon container startup and open in separate browser tabs. If a browser popup blocker intercepts them, open the **Ports** tab in VS Code and click the globe icon next to ports `8080` and `8085`.
 
 ---
 
-### Method 2: Local Standalone Execution (Zero Setup, No GPU Required)
+### Method 2: Local Command-Line Execution (Zero Setup, No GPU Required)
 
-Both applications run locally on any machine with standard Python 3.9+:
-
-```bash
-# Option A: Launch European Critical Raw Materials Demonstrator (Port 8080)
-python run_app.py --port 8080
-# Open: http://localhost:8080
-
-# Option B: Launch General-Purpose GIS Architecture Template (Port 8085)
-python run_template.py --port 8085
-# Open: http://localhost:8085
-```
-
-For reviewers running on their personal laptop or desktop (Windows, macOS, Linux) with standard Python 3.9+ and **no GPU required**:
+Both applications run locally on Windows, macOS, or Linux using **standard Python 3.9+ only** (zero external `pip` dependencies required for Standalone Mock Mode):
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/gicap-ubu/nlu-solr-gis.git
 cd nlu-solr-gis
 
-# 2. Launch the standalone application (zero external dependencies)
-python run_app.py
+# 2A. Launch the European Critical Raw Materials Demonstrator (Port 8080)
+python run_app.py --port 8080
+# Open in browser: http://localhost:8080
+
+# 2B. (In another terminal) Launch the General-Purpose GIS Template Sandbox (Port 8085)
+python run_template.py --port 8085
+# Open in browser: http://localhost:8085
 ```
 
-Open your web browser at:
-```
-http://localhost:8080
-```
-*(Alternatively, execute `python run_app.py` inside `code/` for identical behavior).*
+*(Shell shortcuts `./run_demo.sh` and `./run_template.sh` are also provided on Linux/macOS; running `python run_app.py` inside `code/` provides identical behavior).*
 
 ---
 
@@ -115,7 +104,7 @@ At the top-left of the chat panel, click any of the preset test scenario buttons
   - *Observed Feedback*:
     - Active Filter Badges: `[Countries: Spain, Finland]`, `[CRM Metal: Lithium, Cobalt]`, `[Status: Active]`.
     - Map View: Automatically pans to Western and Northern Europe; matching facilities display **emerald glowing pulse rings**.
-    - Site Counter: Updates to show matching facilities (e.g., `Showing 1 / 100 European Sites`).
+    - Site Counter: Updates to show matching facilities (`Showing 2 / 100 European Sites`: *North Karelia Lithium & Cobalt Waste Dump #45* and *Extremadura Lithium & Cobalt Waste Dump #97*).
     - Assistant Narrative: Generates a factual summary citing deposit names, locations, and operational status.
     - PDF Evidence Cards: Shows grounded citations from technical reports with mineral and country tags.
 
@@ -168,7 +157,7 @@ python code/evaluation/benchmark_conversational_dst.py --models mock phi3 mistra
 #### Benchmark Summary on NVIDIA A100 (40GB VRAM) across 132 Conversational Turns
 | Inference Model | Family / Vendor | Parameters | VRAM (GB) | Latency | Search | Expand | Refine | Remove | Context | Reset | Global Macro F1 | Data Sovereignty |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **Deterministic Baseline (Mock)** | Rule-based | N/A | 0.0 GB | 0.9 ms | 86.0% | 49.8% | 58.8% | 29.9% | 64.8% | 40.0% | **58.5%** | 100% On-Premises (Air-gapped) |
+| **Deterministic Baseline (Mock)** | Rule-based | N/A | 0.0 GB | 0.9 ms | 91.0% | 83.0% | 68.5% | 67.6% | 64.5% | 90.0% | **76.1%** | 100% On-Premises (Air-gapped) |
 | **Phi-3 Mini 4K Instruct** | Microsoft | 3.82 B | 7.13 GB | 3.73 s | 61.4% | 36.5% | 32.2% | 13.3% | 30.6% | 90.0% | **36.9%** | 100% On-Premises (Private GPU) |
 | **Mistral 7B Instruct v0.2** | Mistral AI | 7.24 B | 13.49 GB | 3.65 s | **96.2%** | 92.6% | 80.0% | 64.2% | 86.7% | **100.0%** | **80.7%** | 100% Sovereign (European LLM) |
 | **Llama 3.1 8B Instruct** | Meta | 8.03 B | 14.96 GB | 2.47 s | 96.0% | 94.1% | 93.4% | 78.2% | 78.7% | **100.0%** | **88.8%** | 100% On-Premises (Private GPU) |
@@ -239,7 +228,7 @@ nlu-solr-gis/
 │   ├── run_template.sh                 # Convenient shell launcher
 │   ├── requirements.txt                # Zero-dependency specification (Python stdlib)
 │   ├── data/
-│   │   └── facilities.json             # 30-facility domain-agnostic GIS dataset
+│   │   └── facilities.json             # 80-facility domain-agnostic GIS dataset
 │   └── static/
 │       ├── favicon.ico                 # App icon
 │       └── index.html                  # Reactive Leaflet GIS UI with Live Filter Studio
@@ -292,4 +281,4 @@ This software is released under the **MIT License**. See [`LICENSE`](LICENSE) fo
 
 This research has received funding from the European Union's Research Fund for Coal and Steel (RFCS) under Grant Agreement No. 101216677 (**CRMsDataSpace**: *Building a Common European Data Space on Critical Raw Materials for the Green Deal*).
 
-Developed by the **Grupo de Inteligencia Computacional Aplicada (GICAP)**, Departamento de Digitalización, Escuela Politécnica Superior, Universidad de Burgos, Spain.
+Developed by the **Grupo de Inteligencia Computacional Aplicada (GICAP)**, Departamento de Digitalización, Escuela Politécnica Superior, Universidad de Burgos, Spain, in collaboration with the **Institute of Space Sciences and Technologies of Asturias (ICTEA)**, Universidad de Oviedo, Spain.
