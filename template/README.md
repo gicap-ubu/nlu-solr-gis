@@ -42,6 +42,8 @@ Click the badge above to launch the unified GitHub Codespaces environment. Both 
 - 🇪🇺 **Port 8080**: CRMsDataSpace European Demonstrator (`http://localhost:8080`)
 - 🌍 **Port 8085**: General GIS Architecture Template Sandbox (`http://localhost:8085`)
 
+> ⏳ **Please be patient during initial startup (~1–3 minutes)**: GitHub Codespaces takes a short moment on first launch to provision the container and start both web servers in the background. Once ready, ports `8080` and `8085` open automatically (or via the **Ports** tab in VS Code).
+
 ### Option 2: Local Standalone Execution (Zero Setup)
 Runs out-of-the-box on standard Python 3.9+ without installing any pip packages:
 
@@ -139,7 +141,7 @@ template/
 ├── run_template.sh         # Shell launcher script
 ├── requirements.txt        # Documentation of standard library dependencies
 ├── data/
-│   └── facilities.json     # 80-facility domain-agnostic GIS dataset
+│   └── facilities.json     # Dynamically populated GIS dataset (starts clean for onboarding wizard)
 └── static/
     ├── index.html          # Reactive Leaflet GIS UI with Live Filter Studio
     └── favicon.ico         # App icon

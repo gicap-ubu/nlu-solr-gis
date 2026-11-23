@@ -55,7 +55,7 @@ Both web applications are automatically orchestrated in parallel in the backgrou
 - 🇪🇺 **Port 8080**: **CRMsDataSpace WebApp** — Official European Critical Raw Materials demonstrator (100 facilities across 12 EU countries, multi-model NLU).
 - 🌍 **Port 8085**: **General GIS Template Sandbox** — Domain-agnostic sandbox across 5 global Areas of Interest (AOIs) with in-browser **Filter Studio** to create custom filters by hand and test framework generality.
 
-> **Note on Automatic Port Forwarding**: Ports `8080` and `8085` forward automatically upon container startup and open in separate browser tabs. If a browser popup blocker intercepts them, open the **Ports** tab in VS Code and click the globe icon next to ports `8080` and `8085`.
+> ⏳ **Please be patient during initial startup (~1–3 minutes)**: GitHub Codespaces needs a brief moment on first launch to provision the cloud container, set up the Python environment, and start both web servers in the background. Once initialization finishes, ports `8080` and `8085` will forward automatically and open in separate browser tabs. *(If a browser popup blocker intercepts them, open the **Ports** tab in VS Code and click the globe icon next to ports `8080` and `8085`.)*
 
 ---
 
@@ -228,7 +228,7 @@ nlu-solr-gis/
 │   ├── run_template.sh                 # Convenient shell launcher
 │   ├── requirements.txt                # Zero-dependency specification (Python stdlib)
 │   ├── data/
-│   │   └── facilities.json             # 80-facility domain-agnostic GIS dataset
+│   │   └── facilities.json             # Dynamically populated GIS dataset (starts clean for onboarding wizard)
 │   └── static/
 │       ├── favicon.ico                 # App icon
 │       └── index.html                  # Reactive Leaflet GIS UI with Live Filter Studio
